@@ -270,14 +270,14 @@ Use removeArtist to do the following:
 function removeArtist(array, number) {
   const artists= [];
   for(let i = 0; i < array.length; i++){
-     if(array[i] === number){
-       artists.splice(i, 1);
+     if(i === number){
+       array.splice(i, 1);
      }
    }
-  return artists
+   return array
+  
 }
-removeArtist(artists, 0)
-
+removeArtist(artists, 0);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -345,10 +345,14 @@ Use artistInfo to do the following:
 function artistInfo(artists, name ){
   const bioList = []
   for(let i= 0; i<artists.length; i++) {
-    bioList.push(artists[i].bio)
+    if (artists[i].name===name) {
+      
+      return artists[i].bio
+    }
+    
      
   }
-  return artistInfo(artists, 'Frida Kahlo');
+  
 }
 
 
@@ -363,14 +367,18 @@ Use artistByCountry to do the following:
 🌟 EXAMPLE: Invoking artistByCountry(artists, 'Spanish') will return: [ 'Salvador Dali', 'Pablo Picasso', 'Francisco Goya']
 */
 
-function artistByCountry(array, nationality){
+function artistByCountry(artists, nationality){
   const countryL = [];
-  for (let i = 0; i < array.length; i++) {
-    countryL.push(array[i].nationality)
+  for (let i = 0; i < artists.length; i++) {
+  if (artists[i].nationality===nationality) {
+      
+      countryL.push(artists[i].name)
+    }
+    
+     
   }
-  return countryL;
+  return countryL
 }
-console.log(artistByCountry(artists, 'spanish'));
 
 
 
